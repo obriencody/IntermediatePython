@@ -54,13 +54,24 @@ def run_pipeline():
     for item in take(4, distinct(items)):
         print(item)
 
+
 # --------------------------------------------------
 def main():
     """Make your noise here"""
     # run_take()
     # run_distinct()
-    run_pipeline()
+    # run_pipeline()
 
+    # Generators: (expr(item) for item in iterable)
+    # Task: Create a list of the first 1 million square numbers
+    # Task: Calculate the sum of the list created in task 1
+
+    # m_sq = (x*x for x in range(1, 1001))
+    # print(type(m_sq))
+    # l_sq = list(m_sq)
+    m_sq = [x*x for x in range(1, 1001)] # slower and more memory consumed using this instead of option listed above
+    # print(type(l_sq))
+    print(f'The sum of the first 1000 square numbers is: {sum(m_sq)}')
 # --------------------------------------------------
 if __name__ == '__main__':
     main()
