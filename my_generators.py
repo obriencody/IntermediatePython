@@ -14,6 +14,7 @@ def gen246():
     yield 6
     print('About to return')
 
+
 def gen123():
     yield 1
     yield 2
