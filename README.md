@@ -25,3 +25,16 @@ Then, run your test script
 ```bash
 pytest -xv test_hello.py
 ```
+
+
+
+## Other resourses
+Practice challenges:
+```buildoutcfg
+#https://python...
+```
+
+Free online machine learning courses
+```bash
+https://kaggle.com
+```
