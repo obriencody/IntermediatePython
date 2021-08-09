@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Author : ${USER} <me@wsu.com>
+Author : ${USER} <codyobrien@mail.weber.edu>
 Date   : ${DATE}
 Purpose:
 """
