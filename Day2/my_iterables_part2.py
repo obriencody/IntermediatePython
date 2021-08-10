@@ -35,6 +35,26 @@ def main():
     points = [(x, y) for x in range(5) for y in range(3)]
     print(points)
 
+    # Version 1: Loops
+    values = [(x/(x - y))
+              for x in range(100) if x > 50
+              for y in range(100) if (x - y) != 0]
+    # for x in range(100):
+    #     if x > 50:
+    #         for y in range(100):
+    #             if (x - y) != 0:
+    #                 values.append(x/(x - y))
+    print(values)
+
+    # Task:
+    outer = []
+    for x in range(10):
+        inner = []
+        for y in range(x):
+            inner.append((y*3))
+        outer.append(inner)
+    print(outer)
+
 # --------------------------------------------------
 if __name__ == '__main__':
     main()
