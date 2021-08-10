@@ -44,7 +44,7 @@ class Notebook:
     def _find_note(self, note_id):
         """Locate the note with the given id."""
         for note in self._notes:
-            if note._id == note_id:
+            if str(note._id) == str(note_id):
                 return note
         return None
 
@@ -56,7 +56,12 @@ class Notebook:
         #     if note._id == note_id:
         #         note._memo = memo
         #         break
-        self._find_note(note_id)._memo = memo
+        # self._find_note(note_id)._memo = memo
+        note = self._find_note(note_id)
+        if note:
+            note._memo = memo
+            return True
+        return False
 
     def modify_tags(self, note_id, tags):
         """Find the note with the given id and change its
@@ -65,8 +70,12 @@ class Notebook:
         #     if note._id == note_id:
         #         note._tags = tags
         #         break
-
-        self._find_note(note_id)._tags = tags
+        # self._find_note(note_id)._tags = tags
+        note = self._find_note(note_id)
+        if note:
+            note._tags = tags
+            return True
+        return False
 
     def search(self, filter):
         """Find all notes that match the given filter
@@ -88,7 +97,7 @@ def main():
     print(n._notes[0]._id)
     print(n._notes[0]._memo)
     print(len(n.search('hello')))
-    n.modify_memo(1, 'hi world')
+    n.modify_memo(1, 'h')
     print(n._notes[0]._memo)
     n.modify_tags(1, 'hi guys')
     print(n._notes[0]._tags)
