@@ -22,6 +22,23 @@ class TestConstructor(unittest.TestCase):
         g = gen6842()
         s = SortedSet(g)
 
+class TestContainerProtocol(unittest.TestCase):
+
+    def setUp(self):
+        self.s = SortedSet([6, 7, 3, 9])
+
+    def test_positive_contained(self):
+        self.assertTrue(6 in self.s)
+
+    def test_negative_contained(self):
+        self.assertTrue(2 in self.s)
+
+    def test_positive_not_contained(self):
+        self.assertTrue(5 not in self.s)
+
+    def test_negative_not_contained(self):
+        self.assertTrue(9 not in self.s)
+
 
 if __name__ == '__main__':
     unittest.main()
