@@ -27,11 +27,10 @@ pytest -xv test_hello.py
 ```
 
 
-
 ## Other resourses
 Practice challenges:
-```buildoutcfg
-#https://python...
+```bash
+https://pythonprinciples.com/challenges
 ```
 
 Free online machine learning courses

@@ -69,7 +69,7 @@ def main():
     # m_sq = (x*x for x in range(1, 1001))
     # print(type(m_sq))
     # l_sq = list(m_sq)
-    m_sq = [x*x for x in range(1, 1001)] # slower and more memory consumed using this instead of option listed above
+    m_sq = [x*x for x in range(1, 1001)]  # slower and more memory consumed using this instead of option listed above
     # print(type(l_sq))
     print(f'The sum of the first 1000 square numbers is: {sum(m_sq)}')
 # --------------------------------------------------
