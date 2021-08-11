@@ -33,23 +33,25 @@ def write_sequence(filename, num):
     :param num: maximum number to write
     :return: nothing
     """
-    f = open(filename, mode='wt', encoding='utf-8')
+    with open(filename, mode='wt', encoding='utf-8') as f:
     # Generate list and Write list
     # f.writelines('{0}\n'.format(r)
     #              for r in islice(sequence(), num + 1))
-    f.writelines(f'{r}\n' for r in islice(sequence(), num + 1))
-    # f.writelines()
-
-    f.close()
-
+        f.writelines(f'{r}\n' for r in islice(sequence(), num + 1))
+    # f.close()   # remove if using 'with'
 
 def read_series(filename):
-    f = open(filename, mode='rt', encoding='utf-8')
-    series = []
-    for line in f:
-        series.append(int(line.strip()))
-    f.close()
-    return series
+    # f = open(filename, mode='rt', encoding='utf-8')
+    # series = []
+    # for line in f:
+    #     series.append(int(line.strip()))
+    # f.close()
+    # return series
+
+    # cleaner and closes the files for you
+    with open(filename, mode='rt', encoding='utf-8') as f:
+        return [int(line.strip()) for line in f]
+
 
 # --------------------------------------------------
 def main():
