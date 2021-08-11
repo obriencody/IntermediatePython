@@ -18,6 +18,9 @@ class SortedSet:
         """Length Protocol"""
         return len(self._items)
 
+    def __getitem__(self, index):
+        return self._items[index]
+
 # --------------------------------------------------
 def main():
     """Sort the set"""
