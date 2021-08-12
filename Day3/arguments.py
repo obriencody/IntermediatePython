@@ -1,70 +1,49 @@
 #!/usr/bin/env python3
 """
-Author : t24 <me@wsu.com>
-Date   : 8/12/2021
-Purpose:
+Author : hvalle <me@wsu.com>
+Date   : 8/11/2021
+Purpose: Discuss positional and key word arguments
 """
 
-import argparse
+
+def hyper_volume(length, *lengths):
+    i = iter(lengths)
+    v = length
+    for item in i:
+        v *= length
+    return v
 
 
-# --------------------------------------------------
-def get_args():
-    """Get command-line arguments"""
+def tag(name, **attributes):
+    """Arbitrary number of Keyword arguments,
+    Use the **
+    """
+    # print(name)
+    # print(attributes)
+    # print(type(attributes))
+    result = '<' + name
+    # Task add info from attributes
+    for key, value in attributes.items():
+        result += f'{key}="{str(value)}", '
+    result += '>'
 
-    parser = argparse.ArgumentParser(
-        description='Rock the Casbah',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    return result
 
-    parser.add_argument('positional',
-                        metavar='str',
-                        help='A positional argument')
 
-    parser.add_argument('-a',
-                        '--arg',
-                        help='A named string argument',
-                        metavar='str',
-                        type=str,
-                        default='')
-
-    parser.add_argument('-i',
-                        '--int',
-                        help='A named integer argument',
-                        metavar='int',
-                        type=int,
-                        default=0)
-
-    parser.add_argument('-f',
-                        '--file',
-                        help='A readable file',
-                        metavar='FILE',
-                        type=argparse.FileType('r'),
-                        default=None)
-
-    parser.add_argument('-o',
-                        '--on',
-                        help='A boolean flag',
-                        action='store_true')
-
-    return parser.parse_args()
+def test_tag():
+    print(tag('img', src='monet.jpg',
+        alt='Somewhere in Europe',
+        border=1))
 
 
 # --------------------------------------------------
 def main():
     """Make your noise here"""
+    # print(hyper_volume(3, 4))
+    # print(hyper_volume(3, 4, 5, 6))
+    # print(hyper_volume(3))
+    test_tag()
 
-    args = get_args()
-    str_arg = args.arg
-    int_arg = args.int
-    file_arg = args.file
-    flag_arg = args.on
-    pos_arg = args.positional
-
-    print(f'str_arg = "{str_arg}"')
-    print(f'int_arg = "{int_arg}"')
-    print('file_arg = "{}"'.format(file_arg.name if file_arg else ''))
-    print(f'flag_arg = "{flag_arg}"')
-    print(f'positional = "{pos_arg}"')
 
 
 # --------------------------------------------------

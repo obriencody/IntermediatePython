@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-Author : t24 <me@wsu.com>
+Author : hvalle <me@wsu.com>
 Date   : 8/11/2021
 Purpose:
 """
 
 import argparse
 import os
+import sys
 
 
 # --------------------------------------------------
-import sys
 
 
 def get_args():
@@ -33,7 +33,7 @@ def get_args():
                         default='')
 
     args = parser.parse_args()
-    # Check if string is a file
+    # Check if string is a file. Then read text from file
     if os.path.isfile(args.text):
         args.text = open(args.text).read().rstrip()
 
@@ -45,11 +45,11 @@ def main():
     """Make your noise here"""
 
     args = get_args()
-    # str_arg = args.text
     out_fh = open(args.output, mode='wt', encoding='utf-8') if args.output else sys.stdout
     out_fh.write(args.text.upper() + '\n')
     out_fh.close()
-    print('Done')
+    print("Done")
+
 
 # --------------------------------------------------
 if __name__ == '__main__':
