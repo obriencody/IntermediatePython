@@ -5,7 +5,24 @@ Date   : 8/12/2021
 Purpose: Explore when the LEGB rule does not apply.
 NOTE: LEGB rule does not apply when making new bindings
 """
+import time
+
 message = 'global'
+
+
+def make_timer():
+    last_call = None
+
+    def elapsed():
+        nonlocal last_call
+        now = time.time()
+        if last_call is None:
+            last_call = now
+            return None
+        result = now - last_call
+        last_call = now
+        return result
+    return elapsed  # no ()
 
 
 def enclosing():
@@ -23,9 +40,15 @@ def enclosing():
 # --------------------------------------------------
 def main():
     """Make your noise here"""
-    print(f'Global message {message}')
-    enclosing()
-    print(f'Global message {message}')
+    # print(f'Global message {message}')
+    # enclosing()
+    # print(f'Global message {message}')
+    t = make_timer()
+    print(t())
+    time.sleep(2)
+    print(t())
+    time.sleep(3)
+    print(t())
 
 
 # --------------------------------------------------
